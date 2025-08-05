@@ -6,10 +6,10 @@ compatibility_flags = ["nodejs_compat"]
 [[containers]]
 name = "searxng"
 class_name = "SearxNGContainer"
-image = "./container/Dockerfile"
-image_build_context = ".."
+image = "ghcr.io/searxng/searxng:latest"
 instance_type = "basic"
-max_instances = 1
+autoscaling = { minimum_instances = 1, cpu_target = 0.6 }
+env = { FORCE_OWNERSHIP = "false", CONFIG_PATH = "/tmp/config", DATA_PATH = "/tmp/data" }
 
 [[durable_objects.bindings]]
 name = "SEARXNG_CONTAINER"
