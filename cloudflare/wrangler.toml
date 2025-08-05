@@ -5,10 +5,17 @@ compatibility_flags = ["nodejs_compat"]
 
 [[containers]]
 name = "searxng"
+
+class_name = "SearxNGContainer"
+image = "./Dockerfile"
+instance_type = "basic"
+max_instances = 1
+=======
 image = "./Dockerfile"
 instance_type = "basic"
 max_instances = 1
 env = { FORCE_OWNERSHIP = "false", CONFIG_PATH = "/tmp/config", DATA_PATH = "/tmp/data" }
+
 
 [[durable_objects.bindings]]
 name = "SEARXNG_CONTAINER"
