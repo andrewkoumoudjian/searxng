@@ -7,7 +7,8 @@ export class SearxNGContainer extends Container {
 export default {
   async fetch(request, env) {
     const id = env.SEARXNG_CONTAINER.idFromName("default");
-    const container = env.SEARXNG_CONTAINER.get(id);
-    return container.fetch(request);
+    const stub = env.SEARXNG_CONTAINER.get(id);
+    await stub.startAndWaitForPorts([8080]);
+    return await stub.fetch(request);
   },
 };
