@@ -8,6 +8,7 @@ name = "searxng"
 class_name = "SearxNGContainer"
 image = "./container/Dockerfile"
 image_build_context = ".."
+instance_type = "basic"
 max_instances = 1
 
 [[durable_objects.bindings]]
