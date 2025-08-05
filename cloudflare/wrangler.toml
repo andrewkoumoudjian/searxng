@@ -1,0 +1,19 @@
+name = "searxng-cloudflare"
+main = "src/index.js"
+compatibility_date = "2024-10-22"
+compatibility_flags = ["nodejs_compat"]
+
+[[containers]]
+name = "searxng"
+class_name = "SearxNGContainer"
+image = "./container/Dockerfile"
+image_build_context = ".."
+max_instances = 1
+
+[[durable_objects.bindings]]
+name = "SEARXNG_CONTAINER"
+class_name = "SearxNGContainer"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SearxNGContainer"]
