@@ -10,4 +10,4 @@ To deploy the container:
 npx wrangler deploy
 ```
 
-Wrangler builds the local Dockerfile, pushes the resulting image to Cloudflare's registry, and deploys the container automatically. No manual Docker build or push is required.
+Wrangler pulls the official `ghcr.io/searxng/searxng` image and deploys it directly to Cloudflare. No local Docker build or push is required.
